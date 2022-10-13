@@ -20,7 +20,7 @@
             <a class="navbar-brand" href="{% url 'home:index' %}">MOVIE</a>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'home:index' %}">영화 리뷰</a>
+                <a class="nav-link" href="{% url 'home:index' %}">영화리뷰</a>
               </li>
             </ul>
           </div>
@@ -31,17 +31,20 @@
                   {{ request.user.first_name }}님
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item me-3">
                 <a class="nav-link" href="">로그아웃</a>
               </li>
             {% else %}
               <li class="nav-item me-3">
                 <a class="nav-link" href="">로그인</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="">회원가입</a>
+              <li class="nav-item me-3">
+                <a class="nav-link" href="{% url 'accounts:signup' %}">회원가입</a>
               </li>
             {% endif %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:index' %}">회원목록</a>
+            </li>
           </ul>
         </div>
       </nav>

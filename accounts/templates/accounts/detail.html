@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class='text-center my-3'>프로필</h1>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title fw-bold">사용자 이름</h4>
+      <p class="card-text">{{ user.username }}</p>
+      <h4 class="card-title fw-bold">이름</h4>
+      <p class="card-text">{{ user.full_name }}</p>
+      <h4 class="card-title fw-bold">이메일</h4>
+      <p class="card-text">{{ user.email }}</p>
+      <h4 class="card-title fw-bold">마지막 로그인</h4>
+      <p class="card-text">{{ user.last_login }}</p>
+      <h4 class="card-title fw-bold">가입일</h4>
+      <p class="card-text">{{ user.date_joined }}</p>
+    </div>
+  </div>
+{% endblock content %}
