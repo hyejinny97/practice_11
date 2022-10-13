@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class='text-center my-3'>리뷰 목록</h1>
+  {% for article in articles %}
+    <div class="card my-3">
+      <a href="{% url 'articles:detail' article.pk %}" class='text-decoration-none text-dark'>
+        <div class="card-body">
+          <h4 class='fw-bold'>{{ article.title }}</h4>
+          <p>{{ article.content }}</p>
+          <p>작성자:
+            {{ article.writer.username }}</p>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+  {% if request.user.is_authenticated %}
+    <a class="btn btn-primary my-3" href="{% url 'articles:create' %}" role="button">글 작성</a>
+  {% endif %}
+{% endblock content %}
