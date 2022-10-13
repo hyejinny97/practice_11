@@ -27,24 +27,26 @@
           <ul class="navbar-nav d-flex flex-row">
             {% if request.user.is_authenticated %}
               <li class="nav-item me-3">
-                <a class="nav-link" href="">
-                  {{ request.user.first_name }}님
+                <a class="nav-link" href="{% url 'accounts:detail' request.user.pk %}">
+                  {{ request.user.full_name }}님
                 </a>
               </li>
               <li class="nav-item me-3">
-                <a class="nav-link" href="">로그아웃</a>
+                <a class="nav-link" href="{% url 'accounts:logout' %}">로그아웃</a>
               </li>
             {% else %}
               <li class="nav-item me-3">
-                <a class="nav-link" href="">로그인</a>
+                <a class="nav-link" href="{% url 'accounts:login' %}">로그인</a>
               </li>
               <li class="nav-item me-3">
                 <a class="nav-link" href="{% url 'accounts:signup' %}">회원가입</a>
               </li>
             {% endif %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'accounts:index' %}">회원목록</a>
-            </li>
+            {% if request.user.is_superuser %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:index' %}">회원목록</a>
+              </li>
+            {% endif %}
           </ul>
         </div>
       </nav>

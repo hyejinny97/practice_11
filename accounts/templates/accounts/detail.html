@@ -16,4 +16,10 @@
       <p class="card-text">{{ user.date_joined }}</p>
     </div>
   </div>
+  {% if request.user.pk == user.pk %}
+    <div class="d-grid gap-2 my-3">
+      <a class="btn btn-success" href="{% url 'accounts:update' %}" role="button">회원 정보 수정</a>
+      <a class="btn btn-danger" href="{% url 'accounts:delete' %}" role="button">회원 정보 삭제</a>
+    </div>
+  {% endif %}
 {% endblock content %}
