@@ -297,4 +297,4 @@ $ git branch accounts
 
 > 회원관리 서비스
 
-![]()
+![](gif/django_practice_11_animation.gif)
